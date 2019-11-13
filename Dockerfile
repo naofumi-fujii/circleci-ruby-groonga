@@ -1,8 +1,8 @@
 FROM circleci/ruby:2.6.5-node-browsers
 
-RUN sudo sh -c "echo 'deb http://packages.groonga.org/debian/ jessie main' >> /etc/apt/sources.list.d/groonga.list" \
- && sudo sh -c "echo 'deb-src http://packages.groonga.org/debian/ jessie main' >> /etc/apt/sources.list.d/groonga.list" \
- && sudo apt-get update \
- && sudo apt-get install -y --allow-unauthenticated groonga-keyring \
- && sudo apt-get update \
- && sudo apt-get install -y libgroonga-dev
+RUN sudo apt-get install -y -V  wget tar build-essential pkg-config zlib1g-dev libmsgpack-dev libzmq3-dev libevent-dev libmecab-dev liblz4-dev
+RUN wget https://packages.groonga.org/source/groonga/groonga-9.0.9.tar.gz
+RUN tar xvzf groonga-9.0.9.tar.gz
+RUN cd groonga-9.0.9 && ./configure
+RUN make -j$(grep '^processor' /proc/cpuinfo | wc -l)
+RUN sudo make install
