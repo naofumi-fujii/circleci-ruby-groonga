@@ -6,3 +6,4 @@ workflows:
     jobs:
       - docker/publish:
           image: naofumifujii/$CIRCLE_PROJECT_REPONAME
+          tag: latest
