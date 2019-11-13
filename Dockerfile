@@ -1,4 +1,8 @@
 FROM circleci/ruby:2.6.5-node-browsers
 
-RUN deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main && \
-                   deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
+RUN echo "deb http://packages.groonga.org/debian/ jessie main" >> /etc/apt/sources.list.d/groonga.list \
+  && echo "deb-src http://packages.groonga.org/debian/ jessie main" >> /etc/apt/sources.list.d/groonga.list \
+  && apt-get update \
+  && apt-get install -y --allow-unauthenticated groonga-keyring \
+  && apt-get update \
+  && apt-get install -y libgroonga-dev
