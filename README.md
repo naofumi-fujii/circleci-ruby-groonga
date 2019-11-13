@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/naofumi-fujii/circleci-ruby-groonga.svg?style=svg)](https://circleci.com/gh/naofumi-fujii/circleci-ruby-groonga)
 # circleci-ruby-groonga
 
 - CircleCI Orb Registry - circleci/docker https://circleci.com/orbs/registry/orb/circleci/docker
