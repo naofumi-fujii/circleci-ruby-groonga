@@ -1,8 +1,11 @@
-FROM circleci/ruby:2.6.5-node-browsers
+FROM circleci/ruby:2.6.2-node-browsers
 
-RUN sudo apt-get install -y -V  wget tar build-essential pkg-config zlib1g-dev libmsgpack-dev libzmq3-dev libevent-dev libmecab-dev liblz4-dev
-RUN sudo wget https://packages.groonga.org/source/groonga/groonga-9.0.9.tar.gz
-RUN sudo tar xvzf groonga-9.0.9.tar.gz
-RUN cd groonga-9.0.9 && sudo ./configure && \
-      sudo make -j$(grep '^processor' /proc/cpuinfo | wc -l) && \
-      sudo make install
+RUN sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main' >> /etc/apt/sources.list.d/groonga.list" && \
+    sudo sh -c "echo 'deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main' >> /etc/apt/sources.list.d/groonga.list" && \
+    sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main' >> /etc/apt/sources.list.d/pgdg.list" && \
+    sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - && \
+    sudo apt-get install -y postgresql-client && \
+    sudo apt-get install -y apt-transport-https && \
+    sudo apt-get update -qq && \
+    sudo apt-get install -y --allow-unauthenticated groonga-keyring && \
+    sudo apt-get install -y --force-yes groonga groonga-tokenizer-mecab libgroonga-dev
