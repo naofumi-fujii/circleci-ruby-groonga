@@ -5,5 +5,6 @@ workflows:
   build-and-publish-docker-image:
     jobs:
       - docker/publish:
+          cache_from: 'naofumifujii/$CIRCLE_PROJECT_REPONAME:latest'
           image: naofumifujii/$CIRCLE_PROJECT_REPONAME
           tag: latest
