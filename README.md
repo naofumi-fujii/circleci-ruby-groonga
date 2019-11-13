@@ -3,3 +3,4 @@
 - CircleCI Orb Registry - circleci/docker https://circleci.com/orbs/registry/orb/circleci/docker
 - circleci/ruby - Docker Hub https://hub.docker.com/r/circleci/ruby/
 - naofumifujii's Profile - Docker Hub https://hub.docker.com/u/naofumifujii
+- http://groonga.org/ja/docs/install/debian.html#build-from-source
