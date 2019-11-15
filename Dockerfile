@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.6.5-stretch-node-browsers
+FROM circleci/ruby:2.6.2-stretch-node-browsers
 
 RUN sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main' >> /etc/apt/sources.list.d/groonga.list" && \
     sudo sh -c "echo 'deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main' >> /etc/apt/sources.list.d/groonga.list" && \
