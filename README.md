@@ -1,6 +1,6 @@
 # circleci-ruby-groonga
 
-circleci ruby image with groonga
+[naofumi\-fujii/circleci\-ruby\-groonga](https://github.com/naofumi-fujii/circleci-ruby-groonga)
 
 # dockerhub
 
